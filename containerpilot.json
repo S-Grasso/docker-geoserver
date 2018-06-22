@@ -1,0 +1,11 @@
+{
+  "services": [
+    {
+      "name": "geoserver",
+      "port": "8080",
+      "health": "/usr/bin/curl --fail -s http://localhost:8080/geoserver",
+      "poll": 3,
+      "ttl": 10
+    }
+  ]
+}

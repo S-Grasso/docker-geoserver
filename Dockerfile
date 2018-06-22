@@ -14,8 +14,17 @@ RUN apt-get -y update
 #------------- Install Utils --------------------------------------------------
 RUN apt-get install -y vim zip unzip net-tools telnet procps
 
-#------------- Cleanup --------------------------------------------------------
+#------------- ContainerPilot -------------------------------------------------
 
+# get ContainerPilot release
+RUN curl -Lo /tmp/cb.tar.gz https://github.com/joyent/containerpilot... \
+    && tar -xz -f /tmp/cb.tar.gz && mv /containerpilot /bin/
+
+# add ContainerPilot config and tell ContainerPilot where to find it
+COPY containerpilot.json /etc/containerpilot.json
+ENV CONTAINERPILOT=file:///etc/containerpilot.json
+
+#------------- Cleanup --------------------------------------------------------
 # Delete resources after installation
 RUN    rm -rf /tmp/resources \
     && rm -rf /var/lib/apt/lists/*
@@ -25,3 +34,5 @@ WORKDIR $CATALINA_HOME
 ENV TERM xterm
 
 EXPOSE 8080
+
+CMD [ "/bin/containerpilot", "catalina-wrapper.sh" ]
