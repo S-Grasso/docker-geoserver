@@ -17,7 +17,8 @@ RUN apt-get install -y vim zip unzip net-tools telnet procps curl
 #------------- ContainerPilot -------------------------------------------------
 
 # get ContainerPilot release
-RUN curl -Lo /tmp/cb.tar.gz https://github.com/joyent/containerpilot... \
+RUN curl -Lo /tmp/cb.tar.gz https://github.com/joyent/containerpilot/releases/download/3.8.0/containerpilot-3.8.0.tar.gz \
+:q
     && tar -xz -f /tmp/cb.tar.gz && mv /containerpilot /bin/
 
 # add ContainerPilot config and tell ContainerPilot where to find it
