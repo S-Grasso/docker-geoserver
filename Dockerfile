@@ -17,7 +17,7 @@ ENV jpeg_turbo_version 1.5.3
 # Cleanup 
 RUN apt-get -y update \
  && apt-get install -y vim zip unzip net-tools telnet procps postgresql-client-9.6 gdal-bin \
- && wget https://kent.dl.sourceforge.net/project/libjpeg-turbo/${jpeg_turbo_version}/libjpeg-turbo-official_${jpeg_turbo_version}_amd64.deb \
+ && wget https://downloads.sourceforge.net/project/libjpeg-turbo/${jpeg_turbo_version}/libjpeg-turbo-official_${jpeg_turbo_version}_amd64.deb \
  && dpkg -i ./libjpeg*.deb \
  && apt-get -f install \
  && rm -rf /tmp/resources \
