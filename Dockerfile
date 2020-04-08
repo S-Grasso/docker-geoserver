@@ -12,7 +12,7 @@ RUN  dpkg-divert --local --rename --add /sbin/initctl
 RUN apt-get -y update
 
 #------------- Install Utils --------------------------------------------------
-RUN apt-get install -y vim zip unzip net-tools telnet procps
+RUN apt-get install -y vim zip unzip net-tools telnet procps maven
 
 #------------- Install JPEG Turbo ---------------------------------------------
 ENV jpeg_turbo_version 1.5.3
