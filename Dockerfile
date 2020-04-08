@@ -23,8 +23,8 @@ RUN wget https://downloads.sourceforge.net/project/libjpeg-turbo/${jpeg_turbo_ve
 #------------- Cleanup --------------------------------------------------------
 
 # Delete resources after installation
-RUN    rm -rf /tmp/resources \
-    && rm -rf /var/lib/apt/lists/*
+# RUN    rm -rf /tmp/resources \
+#    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR $CATALINA_HOME
 
